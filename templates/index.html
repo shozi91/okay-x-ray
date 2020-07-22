@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Dashboard</title>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+</head>
+
+<body>
+    <!--Navigation Bar-->
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+    </script>
+
+    <div id='nav-placeholder'></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-lg-12">
+                <h1>
+                    ThePurpleDinosaur
+                </h1>
+                <hr>
+                <div class="card text-center">
+                    <div class="card-header">
+                        Featuring
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">I Eat Your X-Ray</h5>
+                        <p class="card-text">Help support your local farmers and say NO to the orange orangutan.</p>
+                        <form>
+                            <div class="form-group my-4">
+                              <input type="file" class="form-control-file" id="xray-file">
+                            </div>
+                          </form>
+                        <a href="#" class="btn btn-primary">Submit</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Okay X-Ray Limited Edition
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

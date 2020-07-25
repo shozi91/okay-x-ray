@@ -1,8 +1,6 @@
 def loader(predictions, y_class):
 
     from sqlalchemy import create_engine
-    import pandas as pd
-    import pymongo
     from config import postgres_conn_str, upload_database
 
     #create database connection
@@ -13,10 +11,6 @@ def loader(predictions, y_class):
     import glob
     import shutil
     from sqlalchemy import create_engine
-    import pandas as pd
-    import pymongo
-    import config
-
     import traceback
     from PIL import Image
     import os

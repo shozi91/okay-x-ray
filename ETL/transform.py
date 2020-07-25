@@ -1,16 +1,8 @@
 def transformer():
-        
-    import pandas as pd
-    import numpy as np
-    #from PIL import Image
-
-    from sklearn.metrics import confusion_matrix
     
-    from keras.preprocessing.image import ImageDataGenerator, array_to_img
-
+    from sklearn.metrics import confusion_matrix
+    from keras.preprocessing.image import ImageDataGenerator
     from tensorflow import keras
-
-    from datetime import datetime
     import os
     import boto3
 

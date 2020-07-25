@@ -2,9 +2,14 @@ def extractor(method, file_dir):
     
     from flask import request
     from werkzeug.utils import secure_filename   
-    import os   
+    from datetime import datetime
+    import os
+    import re
+    import uuid
 
     if method == 'POST':
         image = request.files['file']
-        filename = secure_filename(image.filename)
+        nameArray = os.path.splitext(image.filename)
+        replaceName = re.sub('\:|\.','\-', str(datetime.now()))
+        filename = secure_filename(replaceName + nameArray[1])
         image.save(os.path.join(file_dir, filename))

@@ -20,19 +20,19 @@ app = Flask(__name__, template_folder='../templates/')
 def index():
     return render_template("index.html")
 
+#################################################
+
 @app.route("/etl", methods = ['GET', 'POST'])
 def etl():
-    try:
-        #extract the data 
-        app.config["IMAGE_UPLOADS"] = os.path.join(os.path.dirname(os.getcwd()), "Upload", "Saved", "normal")
-        extractor(request.method, app.config["IMAGE_UPLOADS"])
 
-        #transform the data
-        predictions, y_class = transformer()
-        #load the data
-        loader(predictions, y_class)
-    except Exception as e:
-        print(e)
+    #extract the data
+    app.config["IMAGE_UPLOADS"] = os.path.join(os.path.dirname(os.getcwd()), "Upload", "moved")
+    extractor(request.method, app.config["IMAGE_UPLOADS"])
+
+    #transform the data
+    predictions, y_class = transformer()
+    #load the data
+    loader(predictions, y_class)
 
     return (predictions, y_class)
 

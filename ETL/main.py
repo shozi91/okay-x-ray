@@ -26,7 +26,7 @@ def index():
 def etl():
 
     #extract the data
-    app.config["IMAGE_UPLOADS"] = os.path.join(os.path.dirname(os.getcwd()), "Upload", "moved")
+    app.config["IMAGE_UPLOADS"] = os.path.join(os.path.dirname(os.getcwd()), "Upload", "saved", "normal")
     extractor(request.method, app.config["IMAGE_UPLOADS"])
 
     #transform the data
@@ -34,7 +34,7 @@ def etl():
     #load the data
     loader(predictions, y_class)
 
-    return (predictions, y_class)
+    return render_template("index.html")
 
 #################################################
 

@@ -23,7 +23,7 @@ def loader(predictions, y_class):
         image_list.append(im)
         im.close()
         try:
-            shutil.copy(filename, f'{root_path}\\Upload\\moved')
+            shutil.copy(filename, f'{root_path}\\archived')
             os.remove(filename)
         except:
             traceback.print_exc()

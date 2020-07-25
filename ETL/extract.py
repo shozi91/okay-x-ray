@@ -10,6 +10,6 @@ def extractor(method, file_dir):
     if method == 'POST':
         image = request.files['file']
         nameArray = os.path.splitext(image.filename)
-        replaceName = re.sub('\:|\.','\-', str(datetime.now()))
-        filename = secure_filename(replaceName + nameArray[1])
+        replaceName = re.sub('\:|\.','_', str(datetime.now()))
+        filename = secure_filename(f'{replaceName}_{uuid.uuid4().hex}{nameArray[1]}')
         image.save(os.path.join(file_dir, filename))

@@ -16,13 +16,8 @@
 
 <body>
     <!--Navigation Bar-->
-    <script>
-        $(function(){
-          $("#nav-placeholder").load("navbar.html");
-        });
-    </script>
+    {% include 'navbar.html' %}
 
-    <div id='nav-placeholder'></div>
 
     <div class="container-fluid">
         <div class="row">
@@ -35,5 +30,7 @@
             </div>
         </div>
     </div>
+    {% include 'footer.html' %}
+
 </body>
 </html>

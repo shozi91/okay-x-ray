@@ -17,14 +17,8 @@
 </head>
 
 <body>
-    <!--Navigation Bar-->
-    <script>
-        $(function(){
-          $("#nav-placeholder").load("navbar.html");
-        });
-    </script>
 
-    <div id='nav-placeholder'></div>
+    {% include 'navbar.html' %}
 
     <div class="container-fluid">
         <div class="row">
@@ -42,19 +36,14 @@
                                 <img id ="uploaded-image" src="" alt="">
                                 <div class="card-body">
                                     <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p>
-                                    <form>
-                                        <div class="form-group my-4">
-                                            <input type="file" class="form-control-file" id="xray-file">
-                                        </div>
-                                    </form>
-                                    <div>
+                                    <div class="form-group my-4">
                                         <form action = "http://localhost:5000/etl" method = "POST" 
                                                     enctype = "multipart/form-data">
+                                                    
                                                     <input type = "file" name = "file" />
-                                                    <input type = "submit"/>
+                                                    <input  class="btn btn-secondary" type = "submit"/>
                                         </form> 
                                     </div>
-                                    <a id ="#submit" href="#" class="btn btn-primary">Submit</a>
                                 </div>
                             </div>
                         </div>
@@ -62,51 +51,7 @@
                 </div>
             </div>
         </div>
-        <div>
-            <footer>
-                <div class = "row text-left text-muted">
-                    <div class = "col col-sm-1 ml-5">
-                        <p>Creators: </p>
-                    </div>
-                    <div class = "col mx-2 text-center">
-                        <p>Tom Mahn</p>
-                        <!-- LinkedIn -->
-                        <a type="button" class="btn-floating btn-small btn-fb mx-2" onclick="window.open('https://www.linkedin.com/in/tom-mahn-1283206a/','_blank')"><i class="fab fa-linkedin fa-2"></i></a>
-                        <!-- Github -->
-                        <a type="button" class="btn-floating btn-small btn-tw mx-2" onclick="window.open('https://github.com/gustavhempel','_blank')"><i class="fab fa-github"></i></a>
-                    </div>
-
-                    <div class = "col col-sm-2 mx-2 text-center">
-                        <p>Matt Duong</p>
-                        <!-- LinkedIn -->
-                        <a type="button" class="btn-floating btn-small btn-fb mx-2" onclick="window.open('https://www.linkedin.com/in/matthewduong/','_blank')"><i class="fab fa-linkedin"></i></a>
-                        <!-- Github -->
-                        <a type="button" class="btn-floating btn-small btn-tw mx-2" onclick="window.open('https://github.com/mndgit','_blank')"><i class="fab fa-github"></i></a>
-                    </div>
-                    <div class = "col mx-2 text-center">
-                        <p>Daniel Chang</p>
-                        <!-- LinkedIn -->
-                        <a type="button" class="btn-floating btn-small btn-fb mx-2" onclick="window.open('https://www.linkedin.com/in/danhschang/','_blank')"><i class="fab fa-linkedin"></i></a>
-                        <!-- Github -->
-                        <a type="button" class="btn-floating b  tn-small btn-tw mx-2" onclick="window.open('https://github.com/zxxdan','_blank')"><i class="fab fa-github"></i></a>
-                    </div>
-                    <div class = "col mx-2 text-center">
-                        <p>Shehroze Ahmed</p>
-                        <!-- LinkedIn -->
-                        <a type="button" class="btn-floating btn-small btn-fb mx-2" onclick="window.open('https://www.linkedin.com/in/shehroze-ahmed/','_blank')"><i class="fab fa-linkedin"></i></a>
-                        <!-- Github -->
-                        <a type="button" class="btn-floating btn-small btn-tw mx-2" onclick="window.open('https://github.com/shozi91','_blank')"><i class="fab fa-github"></i></a>
-    
-                    </div>
-                </div>
-                <div class="row text-center text-muted">
-                    <div class = "col col-sm-12 my-4">
-                        Okay X-Ray Limited Edition
-                    </div>
-                </div>
-            </footer>
-
-        </div>
+        {% include 'footer.html' %}
     </div>
 
 </body>

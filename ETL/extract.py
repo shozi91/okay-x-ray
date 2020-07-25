@@ -5,6 +5,7 @@ def extractor(method, file_dir):
     from datetime import datetime
     import os
     import re
+    import uuid
 
     if method == 'POST':
         image = request.files['file']

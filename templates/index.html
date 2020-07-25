@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Dashboard</title>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+</head>
+
+<body>
+    <!--Navigation Bar-->
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+    </script>
+
+    <div id='nav-placeholder'></div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-sm-12 text-center">
+                <div class="jumbotron-custom jumbotron-fluid">
+                    <h1 class="display-3">OKAY X-RAY</h1>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <hr class="my-4-c">
+                    <div class ="row">
+                        <div id="probability-container" class ="">
+
+                        </div>
+                        <div id="image-container" class = "col">
+                            <div class = "card-custom">
+                                <img id ="uploaded-image" src="" alt="">
+                                <div class="card-body">
+                                    <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p>
+                                    <form>
+                                        <div class="form-group my-4">
+                                            <input type="file" class="form-control-file" id="xray-file">
+                                        </div>
+                                    </form>
+                                    <a id ="#submit" href="#" class="btn btn-primary">Submit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <footer>
+                <div class = "row text-left text-muted">
+                    <div class = "col col-sm-2 mx-5">
+                        <p>Creators: </p>
+                    </div>
+                    <div class = "col col-sm-2 mx-2 text-center">
+                        <p>Tom Mahn</p>
+                        <!-- LinkedIn -->
+                        <a type="button" class="btn-floating btn-small btn-fb mx-2" onclick="window.open('https://www.linkedin.com/in/tom-mahn-1283206a/','_blank')"><i class="fab fa-linkedin fa-2"></i></a>
+                        <!-- Github -->
+                        <a type="button" class="btn-floating btn-small btn-tw mx-2" onclick="window.open('https://github.com/gustavhempel','_blank')"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class = "col col-sm-2 mx-2 text-center">
+                        <p>Matt D</p>
+                        <!-- LinkedIn -->
+                        <a type="button" class="btn-floating btn-small btn-fb mx-2" onclick="window.open('https://www.linkedin.com/in//','_blank')"><i class="fab fa-linkedin"></i></a>
+                        <!-- Github -->
+                        <a type="button" class="btn-floating btn-small btn-tw mx-2" onclick="window.open('https://github.com/','_blank')"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class = "col col-sm-2 mx-2 text-center">
+                        <p>Daniel Chang</p>
+                        <!-- LinkedIn -->
+                        <a type="button" class="btn-floating btn-small btn-fb mx-2" onclick="window.open('https://www.linkedin.com/in/danhschang/','_blank')"><i class="fab fa-linkedin"></i></a>
+                        <!-- Github -->
+                        <a type="button" class="btn-floating btn-small btn-tw mx-2" onclick="window.open('https://github.com/zxxdan','_blank')"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class = "col col-sm-2 mx-2 text-center">
+                        <p>Shehroze Ahmed</p>
+                        <!-- LinkedIn -->
+                        <a type="button" class="btn-floating btn-small btn-fb mx-2" onclick="window.open('https://www.linkedin.com/in/shehroze-ahmed/','_blank')"><i class="fab fa-linkedin"></i></a>
+                        <!-- Github -->
+                        <a type="button" class="btn-floating btn-small btn-tw mx-2" onclick="window.open('https://github.com/shozi91','_blank')"><i class="fab fa-github"></i></a>
+    
+                    </div>
+                </div>
+                <div class="row text-center text-muted">
+                    <div class = "col col-sm-12 my-4">
+                        Okay X-Ray Limited Edition
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+</html>

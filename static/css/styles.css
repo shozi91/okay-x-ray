@@ -1,0 +1,46 @@
+.form-group {
+        margin: 0 auto; 
+        width:250px;
+    }
+.card-custom {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        /* background-color: #282828; */
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+}
+
+.border-custom{
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.my-4-c {
+    margin-bottom: 1.5rem !important;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+.jumbotron-custom {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    /* background-color: #282828; */
+    border-radius: 0.3rem;
+  }
+
+  #uploaded-image   {
+      width: 100%; display: block;
+  }
+  
+  @media (min-width: 576px) {
+    .jumbotron-custom {
+      padding: 4rem 2rem;
+    }
+  }

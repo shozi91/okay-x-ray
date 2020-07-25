@@ -49,7 +49,7 @@ def etl():
     elif sick - normal < 0.35 & normal-sick > 0.50:
         result = "tendency towards a sick result"
 
-    return render_template("index.html", predictions_data = predictions, result=result)
+    return render_template("index2.html", predictions_data = predictions, result=result)
 
 #################################################
 

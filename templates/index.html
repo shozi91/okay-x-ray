@@ -22,17 +22,21 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col col-sm-12 text-center">
+            <div class="col col-sm-12 text-center mx-5 px-5">
                 <div class="jumbotron-custom jumbotron-fluid">
                     <h1 class="display-3">OKAY X-RAY</h1>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <br>
+                    
+                    <p class="lead">Have you recently visited your trusted radiology departement? Did they take your chest Xray and told you that yopur doctor will contact you with the results?
+                        We all have been there. The anxiety of not knowing if one is ok or not is cruciating. Worry not! We, the OKXray team is hear to make your wait a bit less painful.
+                        Why don't you just upload your Xray file and let RAY do some work. 
+                    </p>
                     <hr class="my-4-c">
-                    <div class ="row">
-                        <div id="probability-container" class ="">
-                            <p>Normal Probability: {{ predictions_data[0][0] }}</p>
-                            <p>Sick Probability: {{ predictions_data[0][1] }}</p>
-                            <p><bold>{{result}}</bold></p>
-                        </div>
+                    <div class="row">
+                        <br>
+                    </div>
+                    <div class ="row mt-5 pt-5">
+                     
                         <div id="image-container" class = "col">
                             <div class = "card-custom">
                                 <img id ="uploaded-image" src="" alt="">

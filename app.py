@@ -2,15 +2,12 @@
 # this file calls etl modules
 ########################################################
 from flask import Flask, jsonify, request, render_template
-from extract import extractor
-from transform import transformer
-from load import loader
+from ETL import extract, transform, load
 import os
-
 #################################################
 # Flask Setup
 #################################################
-app = Flask(__name__, template_folder='../templates/')
+app = Flask(__name__)
 
 #################################################
 # Flask Routes
@@ -24,15 +21,24 @@ def index():
 
 @app.route("/etl", methods = ['GET', 'POST'])
 def etl():
+    try:
+        #extract the data 
+        app.config["IMAGE_UPLOADS"] = os.path.join(os.path.dirname(os.getcwd()), "Upload", "Saved", "normal")
+        extract.extractor(request.method, app.config["IMAGE_UPLOADS"])
 
+<<<<<<< HEAD:ETL/main.py
     #extract the data
     app.config["IMAGE_UPLOADS"] = os.path.join(os.path.dirname(os.getcwd()), "Upload", "saved", "normal")
     extractor(request.method, app.config["IMAGE_UPLOADS"])
+=======
+        #transform the data
+        predictions, y_class = transform.transformer()
+        #load the data
+        load.loader(predictions, y_class)
+    except Exception as e:
+        print(e)
+>>>>>>> b58782163f47253a8766cd6256ccf1d0968fa5fd:app.py
 
-    #transform the data
-    predictions, y_class = transformer()
-    #load the data
-    loader(predictions, y_class)
 
     return render_template("index.html")
 
@@ -40,7 +46,7 @@ def etl():
 
 @app.route("/stats")
 def stats():
-    return 1
+    return render_template("stats.html")
 
 #################################################
 

@@ -1,4 +1,4 @@
-def extractor(method, file_dir):
+def extractor(file_dir):
     
     from flask import request
     from werkzeug.utils import secure_filename   
@@ -7,9 +7,8 @@ def extractor(method, file_dir):
     import re
     import uuid
 
-    if method == 'POST':
-        image = request.files['file']
-        nameArray = os.path.splitext(image.filename)
-        replaceName = re.sub('\:|\.','_', str(datetime.now()))
-        filename = secure_filename(f'{replaceName}_{uuid.uuid4().hex}{nameArray[1]}')
-        image.save(os.path.join(file_dir, filename))
+    image = request.files['file']
+    nameArray = os.path.splitext(image.filename)
+    replaceName = re.sub('\:|\.','_', str(datetime.now()))
+    filename = secure_filename(f'{replaceName}_{uuid.uuid4().hex}{nameArray[1]}')
+    image.save(os.path.join(file_dir, filename))

@@ -19,22 +19,21 @@ def index():
 
 #################################################
 
-@app.route("/etl", methods = ['GET', 'POST'])
+@app.route("/etl", methods = ['POST'])
 def etl():
     try:
+        app.config["IMAGE_UPLOADS"] = os.path.join("Upload","xray")
         #extract the data 
-        app.config["IMAGE_UPLOADS"] = os.path.join(os.path.dirname(os.getcwd()), "Upload", "Saved", "normal")
-        extract.extractor(request.method, app.config["IMAGE_UPLOADS"])
+        extract.extractor(app.config["IMAGE_UPLOADS"])
 
         #transform the data
-        predictions, y_class = transform.transformer()
+        predictions = transform.transformer()
         #load the data
-        load.loader(predictions, y_class)
+        load.loader()
     except Exception as e:
         print(e)
 
-
-    return render_template("index.html")
+    return render_template("index.html", predictions_data = predictions)
 
 #################################################
 

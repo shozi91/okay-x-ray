@@ -42,19 +42,13 @@
                                 <img id ="uploaded-image" src="" alt="">
                                 <div class="card-body">
                                     <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p>
-                                    <form>
-                                        <div class="form-group my-4">
-                                            <input type="file" class="form-control-file" id="xray-file">
-                                        </div>
-                                    </form>
-                                    <div>
+                                    <div class="form-group my-4">
                                         <form action = "http://localhost:5000/etl" method = "POST" 
                                                     enctype = "multipart/form-data">
                                                     <input type = "file" name = "file" />
-                                                    <input type = "submit"/>
+                                                    <input  class="btn btn-secondary" type = "submit"/>
                                         </form> 
                                     </div>
-                                    <a id ="#submit" href="#" class="btn btn-primary">Submit</a>
                                 </div>
                             </div>
                         </div>

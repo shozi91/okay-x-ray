@@ -2,15 +2,12 @@
 # this file calls etl modules
 ########################################################
 from flask import Flask, jsonify, request, render_template
-from extract import extractor
-from transform import transformer
-from load import loader
+from ETL import extract, transform, load
 import os
-
 #################################################
 # Flask Setup
 #################################################
-app = Flask(__name__, template_folder='../templates/')
+app = Flask(__name__)
 
 #################################################
 # Flask Routes
@@ -25,12 +22,12 @@ def etl():
     try:
         #extract the data 
         app.config["IMAGE_UPLOADS"] = os.path.join(os.path.dirname(os.getcwd()), "Upload", "Saved", "normal")
-        extractor(request.method, app.config["IMAGE_UPLOADS"])
+        extract.extractor(request.method, app.config["IMAGE_UPLOADS"])
 
         #transform the data
-        predictions, y_class = transformer()
+        predictions, y_class = transform.transformer()
         #load the data
-        loader(predictions, y_class)
+        load.loader(predictions, y_class)
     except Exception as e:
         print(e)
 

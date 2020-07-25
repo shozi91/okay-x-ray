@@ -7,7 +7,7 @@ def transformer():
     import boto3
 
     # root_path = os.path.dirname(os.getcwd())
-    # model = keras.models.load_model(os.path.join(f'{root_path}\\..\\New folder\\ver2_model_softmax_3L64u_3Lnode_10epochs.h5')) 
+    model = keras.models.load_model(os.path.join(f'{root_path}\\..\\New folder\\ver2_model_softmax_3L64u_3Lnode_10epochs.h5')) 
     s3 = boto3.client('s3') #low-level functional API
     s3.download_file(Bucket='okayxray',Key='model/ver3_model_softmax_3L64u_3Lnode_5epochs.h5',Filename= "/tmp/ver3_model_softmax_3L64u_3Lnode_5epochs.h5")
 

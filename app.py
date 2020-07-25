@@ -37,7 +37,7 @@ def etl():
 
 @app.route("/stats")
 def stats():
-    return 1
+    return render_template("stats.html")
 
 #################################################
 

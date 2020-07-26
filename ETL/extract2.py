@@ -10,7 +10,7 @@ def extractor(file_dir):
     image = request.files['file']
     nameArray = os.path.splitext(image.filename)
     replaceName = re.sub('\:|\.','_', str(datetime.now()))
-    filename = secure_filename(f'{replaceName}_{uuid.uuid4().hex}{nameArray[1]}')
+    filename = secure_filename(f"{replaceName}_{uuid.uuid4().hex}{nameArray[1]}")
     file_path = os.path.join(file_dir, filename)
     image.save(file_path)
     return file_path

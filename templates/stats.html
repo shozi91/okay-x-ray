@@ -17,13 +17,8 @@
 
 <body onload="incrementCount(1)">
     <!--Navigation Bar-->
-    <script>
-        $(function(){
-          $("#nav-placeholder").load("navbar.html");
-        });
-    </script>
+    {% include 'navbar.html' %}
 
-    <div id='nav-placeholder'></div>
 
     <div class="container-fluid">
         <div class="row">
@@ -40,42 +35,19 @@
                 </div>
 
                 <div>
-                    <h5>Sample images from dataset:</h5>
-                    <img src="../data/xraysample.png" alt="A small sample of chest x-rays in both children and adult">
-                    <br>
-                    <p>
-                        The above sixteen images are a small sample of chest x-rays in both children and adults, with results showing normal or opaque.
-                        It should be noted as well that these images above are the result of having been uniformly resized to be used in analysis.
-                    </p>
+                    <img src="../data/xraydataset.png" alt="">
                 </div>
 
-                <div >
-                    <h5>Dataset split between normal and opaque:</h5>
-                    <img src="../data/xraydataset.png" alt="Stacked Barchart showing different datasets, and whether image shows normal or opaque lung">
-                    <br>
-                    <p> 
-                        Quick visualization of the number of datapoints we used to train, validate, and test our model.
-                        There are two classifications here, normal (which is healthy) and opaque (meaning there is some sort of issue).
-                        Since we are building a tool geared towards medical purposes, the majority of our data is opaque.
-                        The logic for this is to catch as many and all features which could result in a True Positive for an individual having
-                        sort of affliction of the lung. We would much rather provide a result which is a false positive, than a false negative.
-                    </p>
-                </div>
-
+                
                 <div>
-                    <h5>Flow chart of convolutional neural network utilized:</h5>
-                    <img src="../data/model_plot.png" alt="Flow chart of convolutional neural network used for training and testing">
-                    <br>
-                    <p>
-                        <strong>****Will need's Tom's assistance to write something about the model itself</strong>
-                        The model itself is comprised of three seperate convolution layers which takes into account x parameters. This is then coupled with
-                        three seperate node layers which takes into account y parameters. Once compiled, we are looking at a total of 29,590,722 trainable parameters.
+                    <img src="../data/model_plot.png" alt="">
                 </div>
-
+                
 
             </div>
         </div>
     </div>
+
 
 
 <script src="../static/js/hitcount.js"></script>

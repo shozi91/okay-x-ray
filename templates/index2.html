@@ -28,18 +28,18 @@
                     <p class="lead">Your prediction is ready.</p>
                     <hr class="my-4-c">
                     <div class ="row">
-                        <div id="probability-container" class ="" style="display:none;">
+                        <div id="probability-container" class ="col-12" >
                             <p>Normal Probability: {{ predictions_data[0][0] }}</p>
                             <p>Sick Probability: {{ predictions_data[0][1] }}</p>
                             <p><bold>{{result}}</bold></p>
                         </div>
-                        <div id="image-container" class = "col">
+                        <div id="image-container" class = "col-12">
                             <div class = "card-custom">
                                 <img id ="uploaded-image" src="" alt="">
                                 <div class="card-body">
                                     <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p>
                                     <div class="form-group my-4">
-                                        <form action = "{{url_for('etl')}}" method = "POST" 
+                                        <form action = "{{url_for('index')}}" method = "POST" 
                                                     enctype = "multipart/form-data">
                                                     
                                                     <input type = "file" name = "file" />

@@ -32,8 +32,24 @@ def etl():
         load.loader()
     except Exception as e:
         print(e)
+    normal = predictions[0][0]
+    sick = predictions[0][1]
 
-    return render_template("index.html", predictions_data = predictions)
+    
+    if normal-sick > 0.5:
+        result = "very confident of a healthy result"
+    elif normal-sick > 0.35:
+        result = "confident of a healthy result"
+    elif normal-sick < 0.35 & normal-sick > 0.50:
+        result = "tendency towards a healthy result"
+    elif sick - normal > 0.5:
+        result = "very confident of a sick result"
+    elif sick - normal > 0.35:
+        result = "confident of a sick result"
+    elif sick - normal < 0.35 & normal-sick > 0.50:
+        result = "tendency towards a sick result"
+
+    return render_template("index2.html", predictions_data = predictions, result=result)
 
 #################################################
 

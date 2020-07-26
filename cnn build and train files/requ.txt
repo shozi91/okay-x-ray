@@ -1,17 +1,23 @@
-import boto3
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from PIL import Image
+pip install boto3
+pip install pandas
+pip install numpy
+pip install matplotlib
+pip install pillow
+pip install sklearn
 
-from sklearn.metrics import confusion_matrix
+pip install keras
+pip install tensorflow
+pip install awscli
+pip install flask 
+pip install werkzeug  
+pip install datetime 
+pip install uuid
+pip install sqlalchemy 
 
-from keras.preprocessing.image import ImageDataGenerator, array_to_img
-from keras.models import Sequential
-from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
-from keras.layers import Dropout
-from tensorflow import keras
 
-!pip install awscli
 
-!pip install boto3
+
+
+
+
+pip freeze > requirements.txt

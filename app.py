@@ -21,17 +21,18 @@ def index():
 
 @app.route("/etl", methods = ['POST'])
 def etl():
-    try:
-        app.config["IMAGE_UPLOADS"] = os.path.join("Upload","xray")
+
+    # try:
+    app.config["IMAGE_UPLOADS"] = os.path.join("Upload","xray")
         #extract the data 
-        extract.extractor(app.config["IMAGE_UPLOADS"])
+    extract.extractor(app.config["IMAGE_UPLOADS"])
 
         #transform the data
-        predictions = transform.transformer()
+    predictions = transform.transformer()
         #load the data
-        load.loader()
-    except Exception as e:
-        print(e)
+    load.loader()
+    # except Exception as e:
+    #     print(e)
     normal = predictions[0][0]
     sick = predictions[0][1]
 
@@ -59,9 +60,9 @@ def stats():
 
 #################################################
 
-@app.route("/predictions")
-def predictions():
-    return 1
+# @app.route("/predictions")
+# def predictions():
+#     return 1
 
 if __name__ == '__main__':
     app.run(debug=True)

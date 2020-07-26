@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+    
+    <link rel="stylesheet" href=".{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-sm-12 text-center">
+                <div class="jumbotron-custom jumbotron-fluid">
+                    <h1 class="display-3">OKAY X-RAY</h1>
+                    <br>
+                    
+                    <p id="about-this-page"class="lead">Have you recently visited your trusted radiology departement? Did they take your chest X-Ray and told you that your doctor will contact you with the results?
+                        We all have been there. The anxiety of not knowing if one is ok or not is excruciating. Worry not! We, the OKXray team is hear to make your wait a bit less painful.
+                        Why don't you just upload your X-Ray file and let RAY do some work. 
+                    </p>
+                    <p id="ready" class="lead no-display">Your prediction is ready.</p>
+                    <hr class="my-4-c">
+                    <div class="row">
+                        <br>
+                    </div>
+                    <div class ="row">
+                        <div id="probability-container" class ="no-display">
+                            <p>Normal Probability: {{ predictions_data[0][0] }}</p>
+                            <p>Sick Probability: {{ predictions_data[0][1] }}</p>
+                            <p><bold>{{result}}</bold></p>
+
+                        </div>
+                        <div id="image-container" class = "col">
+                            <div class = "card-custom">
+                                <div id ="uploaded-image" class = "no-display">
+                                    <img src="{{img_path}}">
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p>
+                                    <div class="form-group my-4">
+                                        <form action = "{{url_for('index')}}" method = "POST" 
+                                                    enctype = "multipart/form-data">
+                                                    
+                                                    <div class = "text-left">
+                                                        <input class = "my-4"type = "file" name = "file" />
+                                                        <input  class="btn btn-secondary" type = "submit"/>
+                                                    </div>
+                                        </form> 
+                                        <button id="filter-btn" type="button" class="btn btn-default">Filter</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+    <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
+</body>
+</html>

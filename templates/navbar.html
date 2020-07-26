@@ -1,6 +1,6 @@
 <!--Navigation Bar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">OKX</a>
+    <a class="navbar-brand" href="{{ url_for('index')}}">OKX</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Stats</a>
+          <a class="nav-link" href="{{ url_for('stats')}}">Stats</a>
         </li>
       </ul>
     </div>

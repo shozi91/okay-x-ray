@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Dashboard</title>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-sm-12 text-center">
+                <div class="jumbotron-custom jumbotron-fluid">
+                    <h1 class="display-3">OKAY X-RAY</h1>
+                    <p class="lead">Your prediction is ready.</p>
+                    <hr class="my-4-c">
+                    <div class ="row">
+                        <div id="probability-container" class ="col-12" >
+                            <p>Normal Probability: {{ predictions_data[0][0] }}</p>
+                            <p>Sick Probability: {{ predictions_data[0][1] }}</p>
+                            <p><bold>{{result}}</bold></p>
+                        </div>
+                        <div id="image-container" class = "col-12">
+                            <div class = "card-custom">
+                                <img id ="uploaded-image" src="" alt="">
+                                <div class="card-body">
+                                    <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p>
+                                    <div class="form-group my-4">
+                                        <form action = "{{url_for('index')}}" method = "POST" 
+                                                    enctype = "multipart/form-data">
+                                                    
+                                                    <input type = "file" name = "file" />
+                                                    <input  class="btn btn-secondary" type = "submit"/>
+                                        </form> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+
+</body>
+</html>

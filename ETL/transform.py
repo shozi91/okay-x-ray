@@ -1,38 +1,64 @@
 def transformer():
-        
-    import pandas as pd
-    import numpy as np
-    #from PIL import Image
-
-    from sklearn.metrics import confusion_matrix
     
-    from keras.preprocessing.image import ImageDataGenerator, array_to_img
-
+    from sklearn.metrics import confusion_matrix
+    from keras.preprocessing.image import ImageDataGenerator
+    from flask import jsonify
     from tensorflow import keras
-
-    from datetime import datetime
+    from ETL import  config
     import os
+    import boto3
+    import botocore
 
-    root_path = os.path.dirname(os.getcwd())
-    model = keras.models.load_model(os.path.join(f'{root_path}\\..\\New folder\\ver2_model_softmax_3L64u_3Lnode_10epochs.h5')) 
+    model_file = os.path.exists('./model2.h5')
+    if model_file == True:
+         model = keras.models.load_model("model2.h5")
 
-    hyper_dimension = 500
-    hyper_mode = 'grayscale'
+    else:
 
+        print("I AM DOWNLOADING")
+        BUCKET_NAME = 'okayxray' # replace with your bucket name
+        KEY = 'model/ver3_model_softmax_3L64u_3Lnode_5epochs.h5' # replace with your object key
+        s3 = boto3.resource(
+            's3',
+            aws_access_key_id = config.ACCESS_KEY ,
+            aws_secret_access_key = config.SECRET_KEY
+            )
+
+        try:
+            s3.Bucket(BUCKET_NAME).download_file(KEY, "model2.h5")
+        except botocore.exceptions.ClientError as e:
+            if e.response['Error']['Code'] == "404":
+                print("The object does not exist.")
+            else:
+                print(e)
+
+        print("I AM DOWNLOADED")
+        print("get model")
+        
+        model = keras.models.load_model("model2.h5")
+        print("done")
+
+    #heroku code line
+    #s3.download_file(Bucket='okayxray',Key='model/ver3_model_softmax_3L64u_3Lnode_5epochs.h5',Filename= "/tmp/model.h5")
+    #model = keras.models.load_model("/tmp/model.h5")
+
+
+    #read test images in model
     test_gen = ImageDataGenerator(rescale = 1./255)
-
-    test_set = test_gen.flow_from_directory(f'{root_path}\\Upload\\Saved',
-                                        target_size = (hyper_dimension,
-                                                       hyper_dimension),
+    test_set = test_gen.flow_from_directory(os.path.join('Upload'),
+                                        target_size = (500,
+                                                       500),
                                         batch_size = 1,
-                                        class_mode = 'categorical',
-                                        color_mode = hyper_mode,
+                                        class_mode = None,
+                                        color_mode = 'grayscale',
                                         shuffle=False)
 
+    #probability (normal/sick)
     predictions = model.predict(test_set)
-    y_classes = predictions.argmax(axis=-1)
+    
 
-    return (predictions, y_classes)
+
+    return predictions
 
 if __name__ == '__main__':
     transformer()

@@ -62,8 +62,8 @@ def index():
                 result = "confident of a sick result"
             elif 0.35 <  (sick - normal) > 0:
                 result = "tendency towards a sick result"
-            #return render_template("index3.html", predictions_data = predictions, result=result, img_path = file_path)
-            return redirect(url_for("index3.html", predictions_data = predictions, result=result, img_path = file_path))          
+            return render_template("index2.html", predictions_data = predictions, result=result, img_path = file_path)
+            #return redirect(url_for("index3.html", predictions_data = predictions, result=result, img_path = file_path))          
     
     return render_template("index3.html", predictions_data = ['',''], result='', img_path = '')
 

@@ -6,9 +6,7 @@ def transformer():
     from tensorflow import keras
     import os
     import boto3
-
     import botocore
-    from ETL import config
 
     # print("I AM DOWNLOADING")
     # BUCKET_NAME = 'okayxray' # replace with your bucket name

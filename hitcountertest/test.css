@@ -1,0 +1,17 @@
+body {
+    background: #DDD;
+    font-family: sans-serif;
+}
+
+#example {
+    padding: 20px;
+}
+
+#example span {
+    padding: 10px;
+    margin: 10px;
+    border: 10px solid blue;
+    background: #DDF;
+    foreground: blue;
+    font-weight: bold;
+}

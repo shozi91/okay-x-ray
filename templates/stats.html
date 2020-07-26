@@ -11,10 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 
 </head>
 
-<body>
+<body onload="incrementCount(1)">
     <!--Navigation Bar-->
     {% include 'navbar.html' %}
 
@@ -27,10 +28,34 @@
                 </h1>
                 <hr>
 
+                <div>
+                    <div class="main_container" id="id_main_container">
+                        <div class="container_inner" id="display_div_id"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="../data/xraydataset.png" alt="">
+                </div>
+
+                
+                <div>
+                    <img src="../data/model_plot.png" alt="">
+                </div>
+                
+
             </div>
         </div>
     </div>
+
+
+
+<script src="../static/js/hitcount.js"></script>
+
     {% include 'footer.html' %}
 
 </body>
+
+
+
 </html>

@@ -48,6 +48,7 @@ def index():
             #    print(e)
             normal = predictions[0][0]
             sick = predictions[0][1]
+            result = ''
 
     
             if normal-sick > 0.5:

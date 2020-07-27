@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <title>Web Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"">
-    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://d3js.org/d3.v5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
     
@@ -54,16 +55,15 @@
                                 <div class="card-body">
                                     <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p>
                                     <div class="form-group my-4">
-                                        <form action = "{{url_for('index')}}" method = "POST" 
+                                        <form  id="file-form" action = "{{url_for('index')}}" method = "POST" 
                                                     enctype = "multipart/form-data">
                                                     
-                                                    <div class = "text-left">
-                                                        <input class = "my-4"type = "file" name = "file" />
-                                                        <input  class="btn btn-secondary" type = "submit"/>
+                                                    <div class = "custom-file mb-3">
+                                                        <input  id ="file" type = "file" class="custom-file-input" name = "file" />
+                                                        <label class = "text-left custom-file-label" style="color:black;">Choose an X-RAY picture</label>
+                                                        <input  class="btn btn-secondary no-display" type = "submit"/>
                                                     </div>
                                         </form> 
-                                        <button id="filter-btn" type="button" class="btn btn-default">Filter</button>
-
                                     </div>
                                 </div>
                             </div>

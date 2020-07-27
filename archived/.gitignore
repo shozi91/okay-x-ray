@@ -136,11 +136,8 @@ config.py
 .ipynb_checkpoints
 config.js
 tpush
-*.h5
+.h5
 env
-beanstalk
-.vs
-.vscode
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

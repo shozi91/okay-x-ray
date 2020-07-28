@@ -18,8 +18,8 @@
 <body onload="incrementCount(1)">
     <!--Navigation Bar-->
     <script>
-        $(function(){
-          $("#nav-placeholder").load("navbar.html");
+        $(function () {
+            $("#nav-placeholder").load("navbar.html");
         });
     </script>
 
@@ -29,14 +29,25 @@
         <div class="row">
             <div class="col col-lg-12">
                 <h1>
-                    Here Be Stats!
+                    High Level Statistics
                 </h1>
                 <hr>
 
                 <div>
-                    <div class="main_container" id="id_main_container">
-                        <div class="container_inner" id="display_div_id"></div>
-                    </div>
+                    <h5>Dataset split between normal and opaque:</h5>
+                    <img src="../data/xraydataset.png"
+                        alt="Stacked Barchart showing different datasets, and whether image shows normal or opaque lung">
+                    <br>
+                    <p>
+                        Stacked Barchart showing different datasets, and whether image shows normal or opaque lung
+
+
+                        <!-- Quick visualization of the number of datapoints we used to train, validate, and test our model.
+                        There are two classifications here, normal (which is healthy) and opaque (meaning there is some sort of issue).
+                        Since we are building a tool geared towards medical purposes, the majority of our data is opaque.
+                        The logic for this is to catch as many and all features which could result in a True Positive for an individual having
+                        sort of affliction of the lung. We would much rather provide a result which is a false positive, than a false negative. -->
+                    </p>
                 </div>
 
                 <div>
@@ -44,32 +55,83 @@
                     <img src="../data/xraysample.png" alt="A small sample of chest x-rays in both children and adult">
                     <br>
                     <p>
-                        The above sixteen images are a small sample of chest x-rays in both children and adults, with results showing normal or opaque.
-                        It should be noted as well that these images above are the result of having been uniformly resized to be used in analysis.
-                    </p>
-                </div>
+                        A small sample of chest x-rays in both children and adult
 
-                <div >
-                    <h5>Dataset split between normal and opaque:</h5>
-                    <img src="../data/xraydataset.png" alt="Stacked Barchart showing different datasets, and whether image shows normal or opaque lung">
-                    <br>
-                    <p> 
-                        Quick visualization of the number of datapoints we used to train, validate, and test our model.
-                        There are two classifications here, normal (which is healthy) and opaque (meaning there is some sort of issue).
-                        Since we are building a tool geared towards medical purposes, the majority of our data is opaque.
-                        The logic for this is to catch as many and all features which could result in a True Positive for an individual having
-                        sort of affliction of the lung. We would much rather provide a result which is a false positive, than a false negative.
+                        <!-- The above sixteen images are a small sample of chest x-rays in both children and adults, with results showing normal or opaque.
+                        It should be noted as well that these images above are the result of having been uniformly resized to be used in analysis. 
+                        These 16 images here are also the first batch of pictures to be run through the model. -->
                     </p>
                 </div>
 
                 <div>
-                    <h5>Flow chart of convolutional neural network utilized:</h5>
-                    <img src="../data/model_plot.png" alt="Flow chart of convolutional neural network used for training and testing">
+                    <h5>First 50 Epochs' Accuracy Values:</h5>
+                    <img src="../data/accu50epoch.png" alt="Line chart of model accuracy after 50 epochs">
                     <br>
                     <p>
-                        <strong>****Will need's Tom's assistance to write something about the model itself</strong>
-                        The model itself is comprised of three seperate convolution layers which takes into account x parameters. This is then coupled with
-                        three seperate node layers which takes into account y parameters. Once compiled, we are looking at a total of 29,590,722 trainable parameters.
+                        Line chart of model accuracy after 50 epochs
+
+
+                        <!-- For the purposes of this demonstration, with time and computing resources at the top of mind, we have decided to visualize the results of the
+                        first fifty epochs when training the model. 
+                        We can see that as far as accuracy goes, we can see that by the time 50 epochs were completed, our model's accuracy reached approximately 94% or so,
+                        with the validation showing that it is rather consistent.
+                        Running for an additional 550 epochs on this single model alone has resulted in 96.9% accuracy -->
+
+
+                    </p>
+                </div>
+
+                <div>
+                    <h5>First 50 Epochs' Loss Values:</h5>
+                    <img src="../data/loss50epoch.png" alt="Line chart of model loss after 50 epochs">
+                    <br>
+                    <p>
+                        Line chart of model loss after 50 epochs
+
+                        <!-- When we look at the loss after 50 epochs, from a training standpoint, we're sitting around 0.18, already this score for loss is too high for our standards.
+                            As we look at the results on the validation for the first 50 epochs, we can see the erratic behaviour, which just goes to show that our model is not yet
+                            well trained.
+                            After another 550 epochs though, we can see that our loss consistently reached around 0.08.
+
+                            When looking at both accuracy and loss though, we can see that the even at 600 epochs, there is still room for improvement,
+                            The greatest constraints at the end of the day is time, and computational resources-->
+                    </p>
+                </div>
+
+                <div>
+                    <h5>Confusion Matrix:</h5>
+                    <img src="../data/confusionmatrix.png" alt="Confusion matrix of test results">
+                    <br>
+                    <p>
+                        The confusion matrix of the test results
+
+                        <!-- The confusion matrix here shows the results of the tests we have run. There are essentially 4 results to be had, 
+                            true positives and true negatives, as well as false positives and false negatives.
+
+                            Of the 770 images tested, 654 were predicted correctly. This is a 85% success rate. 
+                            
+                            Of the results which were incorrectly predicted, we had 86 false positives. Realistically, we are not too concerned with false positives.
+                            Reason being is that it's better to be "overly cautious," and double check a result.
+
+                            This would be opposed to the false negatives, which the model spits out. 
+
+                            Of the 464 actual sick cases, 6.4% of our results came up as a false negative. However, we also set our confidence interval to 60%, wherein results
+                            showing less than 60% would result in a message from us stating we are not confident enough to make a diagnosis.
+                        -->
+                    </p>
+                </div>
+
+
+
+
+                <div>
+                    <h5>Flow chart of convolutional neural network utilized:</h5>
+                    <img src="../data/model_plot.png"
+                        alt="Flow chart of convolutional neural network used for training and testing">
+                    <br>
+                    <p>
+                        Flow chart of convolutional neural network used for training and testing
+
                 </div>
 
 
@@ -78,7 +140,7 @@
     </div>
 
 
-<script src="../static/js/hitcount.js"></script>
+    <script src="../static/js/hitcount.js"></script>
 
     {% include 'footer.html' %}
 

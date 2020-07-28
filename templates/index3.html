@@ -16,7 +16,7 @@
     <script src="https://d3js.org/d3.v5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
     
-    <link rel="stylesheet" href=".{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
 </head>
 
@@ -41,17 +41,8 @@
                         <br>
                     </div>
                     <div class ="row">
-                        <div id="probability-container" class ="no-display">
-                            <p>Normal Probability: {{ predictions_data[0][0] }}</p>
-                            <p>Sick Probability: {{ predictions_data[0][1] }}</p>
-                            <p><bold>{{result}}</bold></p>
-
-                        </div>
                         <div id="image-container" class = "col">
                             <div class = "card-custom">
-                                <div id ="uploaded-image" class = "no-display">
-                                    <img src="{{img_path}}">
-                                </div>
                                 <div class="card-body">
                                     <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p>
                                     <div class="form-group my-4">

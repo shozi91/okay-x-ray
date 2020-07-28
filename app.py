@@ -51,25 +51,21 @@ def index():
             #    print(e)
             normal = predictions[0][0]
             sick = predictions[0][1]
-<<<<<<< HEAD
-=======
-
->>>>>>> 274345729bf126d422a28853e45d569329e73eb3
             result = 'Too close to predict!'
 
 
             if normal-sick > 0.5:
-                result = "very confident of a healthy result"
+                result = "Very confident of a healthy result."
             elif normal-sick > 0.35:
-                result = "confident of a healthy result"
+                result = "Confident of a healthy result."
             elif normal-sick > 0.20:
-                result = "tendency towards a healthy result"
+                result = "Tendency towards a healthy result."
             elif sick - normal > 0.5:
-                result = "very confident of a sick result"
+                result = "Very confident of a sick result."
             elif sick - normal > 0.35:
-                result = "confident of a sick result"
+                result = "Confident of a sick result."
             elif sick - normal > 0.2:
-                result = "tendency towards a sick result"
+                result = "Tendency towards a sick result."
 
             return render_template("index2.html", predictions_data = predictions, result=result, img_path = filename)
             #return redirect(url_for("index3.html", predictions_data = predictions, result=result, img_path = file_path))          

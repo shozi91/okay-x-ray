@@ -39,7 +39,7 @@
                         </div>
                         <div id="image-container" class = "col-6">
                             <div class = "card-custom">
-                                <img id ="uploaded-image" src="{{img_path}}" >
+                                <img id ="uploaded-image" src="{{url_for('get_image', filename = img_path )}}" >
                                 <div class="card-body text-left">
                                     <!-- <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p> -->
                                     <a class="btn btn-secondary" href="{{url_for('index')}}">Upload Another Picture</a>

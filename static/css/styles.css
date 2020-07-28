@@ -5,6 +5,27 @@
 .no-display{
   display:none;
 }
+
+.glow {
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 30px #4169e1, 0 0 40px #4169e1, 0 0 50px #4169e1, 0 0 60px #4169e1, 0 0 70px #4169e1;
+  }
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 30px #14376a, 0 0 40px #14376a, 0 0 50px #14376a, 0 0 60px #14376a, 0 0 70px #14376a, 0 0 80px #14376a;
+  }
+}
+
+
+
+/* 4169e1  14376a*/
 .card-custom {
         position: relative;
         display: -webkit-box;
@@ -37,10 +58,23 @@
     /* background-color: #282828; */
     border-radius: 0.3rem;
   }
+  
+  #uploaded-image  {
+      max-width: 350px;
+      max-height : 350px;
+      border-radius: 25px;
+      -webkit-animation: uploaded-image 1s ease-in-out infinite alternate;
+      -moz-animation: uploaded-image 1s ease-in-out infinite alternate;
+      animation: uploaded-image 1s ease-in-out infinite alternate;
+  }
 
-  #uploaded-image   {
-      max-width: 500px; display: block;
-      max-height : 500px; display:block;
+  @-webkit-keyframes uploaded-image{
+    to {
+      box-shadow: 0 0 15px #fff, 0 0 5px #fff, 0 0 10px #4169e1, 0 0 15px #4169e1, 0 0 20px #4169e1, 0 0 25px #4169e1, 0 0 30px #4169e1;
+    }
+    from {
+      box-shadow: 0 0 10px #fff, 0 0 10px #14376a, 0 0 15px #14376a, 0 0 20px #14376a, 0 0 25px #14376a, 0 0 30px #14376a, 0 0 35px #14376a;
+    }
   }
 
   form {

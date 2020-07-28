@@ -2,7 +2,9 @@
 <html lang="en-us">
 
 <head>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <title>Web Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"">
     <!-- Font Awesome -->
@@ -28,26 +30,30 @@
         <div class="row">
             <div class="col col-sm-12 text-center">
                 <div class="jumbotron-custom jumbotron-fluid">
-                    <h1 class="display-3">OKAY X-RAY</h1>
+                    <h1 class="display-3">OKay <span class = "glow"> xRAY</span></h1>
                     <p class="lead">Your prediction is ready.</p>
                     <hr class="my-4-c">
                     <div class ="row">
-                        <div id="probability-container " class ="col-6 text-left" >
-                            <p>Normal Probability: {{ predictions_data[0][0] }}</p>
+                        <div class = "col-1"></div>
+                        <div id="image-container" class = "col-5">
+                            <div class = "card-custom">
+                                <img id ="uploaded-image" src="{{url_for('get_image', filename = img_path )}}" >
+                                <!-- <img class = "img-fluid" id ="uploaded-image" src="../archived/test.png" > -->
+                            </div>
+                        </div>
+                        <div id="probability-container" class ="col-5 text-center" >
+                            <p class = "pt-5 mt-5">Normal Probability: {{ predictions_data[0][0] }}</p>
                             <p>Sick Probability: {{ predictions_data[0][1] }}</p>
                             <p><bold>{{result}}</bold></p>
                         </div>
-                        <div id="image-container" class = "col-6">
-                            <div class = "card-custom">
-                                <img id ="uploaded-image" src="{{url_for('get_image', filename = img_path )}}" >
-                                <div class="card-body text-left">
-                                    <!-- <p class="card-text">Select your X-Ray image. Ensure that it is minimum 500px by 500px.</p> -->
-                                    <a class="btn btn-secondary" href="{{url_for('index')}}">Upload Another Picture</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class = "col-1"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col text-center">
+                <a class="btn btn-secondary" href="{{url_for('index')}}">Upload Another Picture</a>
             </div>
         </div>
         {% include 'footer.html' %}

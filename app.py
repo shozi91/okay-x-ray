@@ -55,23 +55,23 @@ def index():
 
 
             if normal-sick > 0.5:
-                result = "very confident of a healthy result"
+                result = "Very confident of a healthy result."
             elif normal-sick > 0.35:
-                result = "confident of a healthy result"
+                result = "Confident of a healthy result."
             elif 0.35 <  (normal-sick) > 0.01:
-                result = "tendency towards a healthy result"
+                result = "Tendency towards a healthy result."
             elif sick - normal > 0.5:
-                result = "very confident of a sick result"
+                result = "Very confident of a sick result."
             elif sick - normal > 0.35:
-                result = "confident of a sick result"
+                result = "Confident of a sick result."
             elif 0.35 <  (sick - normal) > 0:
-                result = "tendency towards a sick result"
+                result = "Tendency towards a sick result."
             return render_template("index2.html", predictions_data = predictions, result=result, img_path = filename)
             #return redirect(url_for("index3.html", predictions_data = predictions, result=result, img_path = file_path))          
     
-    filename = 'test.png'
     
-    return render_template("index3.html", predictions_data = ['',''], result='',img_url = filename )
+    
+    return render_template("index3.html", predictions_data = ['',''], result='' )
 
 #################################################
 

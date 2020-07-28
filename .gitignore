@@ -136,6 +136,7 @@ config.py
 .ipynb_checkpoints
 config.js
 tpush
+tpull
 *.h5
 env
 beanstalk

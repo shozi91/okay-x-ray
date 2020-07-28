@@ -51,14 +51,9 @@ def index():
             #    print(e)
             normal = predictions[0][0]
             sick = predictions[0][1]
-<<<<<<< HEAD
-            
-    
-=======
-            result = ''
+            result = 'Too close to predict!'
 
 
->>>>>>> 47d6058aa740652bbd35ce044fc85b4ee339f837
             if normal-sick > 0.5:
                 result = "very confident of a healthy result"
             elif normal-sick > 0.35:

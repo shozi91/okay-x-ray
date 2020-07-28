@@ -1,7 +1,7 @@
 def transformer():
     
     from sklearn.metrics import confusion_matrix
-    from keras.preprocessing.image import ImageDataGenerator
+    from tensorflow.keras.preprocessing.image import ImageDataGenerator
     from flask import jsonify
     from tensorflow import keras
     from ETL import  config

@@ -51,6 +51,10 @@ def index():
             #    print(e)
             normal = predictions[0][0]
             sick = predictions[0][1]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 481a51ce095b83eac353a8985a7b8393a40b1160
             result = 'Too close to predict!'
 
 

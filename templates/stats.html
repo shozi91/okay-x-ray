@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"> -->
     <title>Web Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"">
     <!-- Font Awesome -->
@@ -118,7 +118,6 @@
                             As we look at the results on the validation for the first 50 epochs, we can see the erratic behaviour, which just goes to show that our model is not yet
                             well trained.
                             After another 550 epochs though, we can see that our loss consistently reached around 0.08.
-
                             When looking at both accuracy and loss though, we can see that the even at 600 epochs, there is still room for improvement,
                             The greatest constraints at the end of the day is time, and computational resources-->
                                     </p>
@@ -137,14 +136,11 @@
 
                                         <!-- The confusion matrix here shows the results of the tests we have run. There are essentially 4 results to be had, 
                             true positives and true negatives, as well as false positives and false negatives.
-
                             Of the 770 images tested, 654 were predicted correctly. This is a 85% success rate. 
                             
                             Of the results which were incorrectly predicted, we had 86 false positives. Realistically, we are not too concerned with false positives.
                             Reason being is that it's better to be "overly cautious," and double check a result.
-
                             This would be opposed to the false negatives, which the model spits out. 
-
                             Of the 464 actual sick cases, 6.4% of our results came up as a false negative. However, we also set our confidence interval to 60%, wherein results
                             showing less than 60% would result in a message from us stating we are not confident enough to make a diagnosis.
                         -->
